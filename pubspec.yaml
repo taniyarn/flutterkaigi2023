@@ -7,8 +7,15 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  custom_mouse_cursor: ^1.1.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  fluttershow_base: ^1.1.1
+  fluttershow_keynote: ^1.1.0
+  hooks_riverpod: ^2.4.0
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
