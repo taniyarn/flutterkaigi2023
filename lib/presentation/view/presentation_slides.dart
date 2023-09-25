@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutterkaigi2023/presentation/config/presentation_slides.dart';
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
-import 'package:flutterkaigi2023/presentation/widgets/menu.dart';
-import 'package:flutterkaigi2023/styles/fs_style_constants.dart';
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/fluttershow_base.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../styles/fs_style_constants.dart';
+import '../config/presentation_slides.dart';
+import '../provider/presentation_controller_provider.dart';
+import '../widgets/menu.dart';
 
 class PresentationSlides extends HookConsumerWidget {
   const PresentationSlides({this.slides, super.key});

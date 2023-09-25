@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterkaigi2023/presentation/config/cursor_style.dart';
-import 'package:flutterkaigi2023/presentation/config/presentation_slides.dart';
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
-import 'package:flutterkaigi2023/slides/04_downsides/view/downsides_slide.dart';
+
+import '../config/presentation_slides.dart';
+import '../provider/presentation_controller_provider.dart';
 
 @immutable
 class Presentation {
   const Presentation({
     required this.animationIndex,
     required this.page,
-    required this.locale,
-    required this.brightness,
     required this.menuOpen,
     required this.pageController,
-    this.cursorStyle = CursorStyle.basic,
   });
 
   /// Represents the current step of the animation in the presentation.
@@ -44,15 +40,6 @@ class Presentation {
   /// Tracks the current slide in the presentation.
   final int page;
 
-  /// Represents the locale used for internationalization and localization.
-  final Locale locale;
-
-  /// Represents the brightness mode of the application (light or dark).
-  final Brightness brightness;
-
-  /// Sets the current mouse style.
-  final CursorStyle cursorStyle;
-
   /// Indicates whether the menu is open or closed.
   final bool menuOpen;
 
@@ -62,17 +49,11 @@ class Presentation {
   Presentation copyWith({
     int? animationIndex,
     int? page,
-    Locale? locale,
     bool? menuOpen,
-    Brightness? brightness,
-    CursorStyle? cursorStyle,
   }) {
     return Presentation(
       animationIndex: animationIndex ?? this.animationIndex,
       page: page ?? this.page,
-      locale: locale ?? this.locale,
-      brightness: brightness ?? this.brightness,
-      cursorStyle: cursorStyle ?? this.cursorStyle,
       menuOpen: menuOpen ?? this.menuOpen,
       pageController: pageController,
     );

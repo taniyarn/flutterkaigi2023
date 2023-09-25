@@ -31,7 +31,4 @@ class FSGradients {
     ],
     stops: [0.1, 1.0],
   );
-
-  static LinearGradient dynamicBackground(Brightness brightness) =>
-      brightness == Brightness.dark ? backgroundDark : background;
 }

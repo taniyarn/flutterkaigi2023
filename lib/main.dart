@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutterkaigi2023/generated/l10n.dart';
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
-import 'package:flutterkaigi2023/presentation/view/presentation_slides.dart';
-import 'package:flutterkaigi2023/styles/theme/dark_theme.dart';
-import 'package:flutterkaigi2023/styles/theme/light_theme.dart';
 import 'package:fluttershow_base/components/model/presentation_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'presentation/view/presentation_slides.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyFlutterShow()));
@@ -21,28 +17,9 @@ class MyFlutterShow extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final presentation = ref.watch(presentationController);
-
     return CupertinoApp(
-      key: const Key('FlutterShow'),
-      locale: presentation.locale,
-      theme:
-          presentation.brightness == Brightness.dark ? darkTheme : lightTheme,
-      home: FutureBuilder(
-        future: presentation.cursorStyle.cursor,
-        builder: (context, snapshot) => MouseRegion(
-          cursor: snapshot.data ?? SystemMouseCursors.basic,
-          child: PresentationSlides(slides: slides),
-        ),
-      ),
+      home: PresentationSlides(slides: slides),
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

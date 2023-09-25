@@ -1,49 +1,12 @@
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
-import 'package:flutterkaigi2023/slides/01_title/view/title_slide.dart';
-import 'package:flutterkaigi2023/slides/02_agenda/view/agenda_slide.dart';
-import 'package:flutterkaigi2023/slides/03_motivation/view/motivation.dart';
-import 'package:flutterkaigi2023/slides/04_downsides/view/downsides_slide.dart';
-import 'package:flutterkaigi2023/slides/05_benefits/view/benefits_slide.dart';
-import 'package:flutterkaigi2023/slides/06_outro/view/outo_slide.dart';
 import 'package:fluttershow_base/components/model/presentation_page.dart';
+
+import '../../slides/01_title/view/title_slide.dart';
+import '../provider/presentation_controller_provider.dart';
 
 enum PagesOfPresentation {
   titleSlide(
     PresentationSlide(
-      slideWidget: TitleSlide(),
-      title: 'Title',
-    ),
-  ),
-  agendaSlide(
-    PresentationSlide(
-      slideWidget: AgendaSlide(),
-      title: 'Agenda',
-    ),
-  ),
-  motivation(
-    PresentationSlide(
-      slideWidget: MotivationSlide(),
-      animationSteps: 4,
-    ),
-  ),
-  downsides(
-    PresentationSlide(
-      slideWidget: DownsidesSlide(),
-      animationSteps: 6,
-      title: 'Downsidessssss',
-    ),
-  ),
-  benefits(
-    PresentationSlide(
-      slideWidget: BenefitsSlide(),
-      animationSteps: 6,
-    ),
-  ),
-  outro(
-    PresentationSlide(
-      slideWidget: OutroSlide(),
-      title: 'Fin',
-    ),
+        slideWidget: TitleSlide(), title: 'Title', animationSteps: 3),
   );
 
   /// [PagesOfPresentation] is an enum, where each slides are stored

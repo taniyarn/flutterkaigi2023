@@ -49,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  chalkdart:
-    dependency: transitive
-    description:
-      name: chalkdart
-      sha256: "5fceaf0eb65cb3a0746423aad4b285b9ec123133b9435630ac027f305b21e8b5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.9"
   characters:
     dependency: transitive
     description:
@@ -97,14 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  custom_mouse_cursor:
-    dependency: "direct main"
-    description:
-      name: custom_mouse_cursor
-      sha256: "66e8949273aa5f3199f6a23e9ca488a0d8e0587ddba54189d7790a136f391edb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   dart_code_viewer_x:
     dependency: transitive
     description:
@@ -143,7 +127,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_hooks:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_hooks
       sha256: "6ae13b1145c589112cbd5c4fda6c65908993a9cb18d4f82042e9c28dd9fbf611"
@@ -158,11 +142,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  flutter_localizations:
-    dependency: "direct main"
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_riverpod:
     dependency: transitive
     description:
@@ -208,14 +187,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
-  intl:
-    dependency: "direct main"
-    description:
-      name: intl
-      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.18.0"
   js:
     dependency: transitive
     description:

@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutterkaigi2023/generated/l10n.dart';
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
-import 'package:flutterkaigi2023/slides/01_title/widgets/title_slide_overlay.dart';
-import 'package:flutterkaigi2023/styles/fs_gradients.dart';
-import 'package:flutterkaigi2023/styles/fs_text_styles.dart';
 import 'package:fluttershow_keynote/fluttershow_keynote.dart';
 import 'package:fluttershow_keynote/slides/title_slide/keynote_title_slide.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../styles/fs_gradients.dart';
+import '../../../styles/fs_text_styles.dart';
 
 class TitleSlide extends ConsumerWidget {
   const TitleSlide({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = S.of(context);
-    final controller = ref.watch(presentationController);
-
     return DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: FSGradients.dynamicBackground(controller.brightness),
+      decoration: const BoxDecoration(
+        gradient: FSGradients.background,
       ),
       child: Stack(
         children: [
@@ -39,9 +34,8 @@ class TitleSlide extends ConsumerWidget {
           /// own textstyles in [FSTextStyles] or use the declared `themes`.
 
           KeynoteTitleSlide(
-            titleText: t.flutterShow,
-            subTitleText: t.presentationsInFlutter,
-            footerText: t.author,
+            titleText: 'タイトル',
+            subTitleText: 'サブタイトル',
             titleGradient: FSGradients.titlePrimary,
             titleStyle: KeynoteTextstyles.title(),
             subtitleStyle: KeynoteTextstyles.subtitle(),
@@ -55,8 +49,6 @@ class TitleSlide extends ConsumerWidget {
           //   subTitleText: t.presentationsInFlutter,
           //   footerText: t.author,
           // ),
-
-          const TitleSlideOverlay()
         ],
       ),
     );

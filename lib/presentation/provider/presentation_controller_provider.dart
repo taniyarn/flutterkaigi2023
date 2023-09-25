@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterkaigi2023/presentation/config/contants.dart';
-import 'package:flutterkaigi2023/presentation/config/cursor_style.dart';
-import 'package:flutterkaigi2023/presentation/config/key_actions.dart';
-import 'package:flutterkaigi2023/presentation/config/presentation_slides.dart';
-import 'package:flutterkaigi2023/presentation/model/presentation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../config/contants.dart';
+import '../config/key_actions.dart';
+import '../config/presentation_slides.dart';
+import '../model/presentation.dart';
 
 class PresentationController extends StateNotifier<Presentation> {
   PresentationController()
@@ -15,9 +14,7 @@ class PresentationController extends StateNotifier<Presentation> {
           Presentation(
             animationIndex: 0,
             page: 0,
-            locale: const Locale('en'),
             menuOpen: false,
-            brightness: PlatformDispatcher.instance.platformBrightness,
             pageController: PageController(),
           ),
         );
@@ -47,14 +44,6 @@ class PresentationController extends StateNotifier<Presentation> {
         physicalKeyboardKey: event.physicalKey,
       )) {
         toggleMenu();
-        return KeyEventResult.handled;
-      }
-
-      if (_hasTriggeredKeyAction(
-        keyAction: KeyActions.showHideMouse,
-        physicalKeyboardKey: event.physicalKey,
-      )) {
-        toggleMouseVisibility();
         return KeyEventResult.handled;
       }
 
@@ -140,47 +129,10 @@ class PresentationController extends StateNotifier<Presentation> {
     );
   }
 
-  void setBrightness(Brightness brightness) => state = state.copyWith(
-        brightness: brightness,
-      );
-
-  void setLocale(Locale locale) => state = state.copyWith(
-        locale: locale,
-      );
-
-  void setCursorStyle(CursorStyle cursorStyle) {
-    state = state.copyWith(
-      cursorStyle: cursorStyle,
-    );
-  }
-
-  void toggleMouseVisibility() {
-    state = state.copyWith(
-      cursorStyle: state.cursorStyle == CursorStyle.basic
-          ? CursorStyle.hidden
-          : CursorStyle.basic,
-    );
-  }
-
   void toggleMenu() {
-    if (_hasOpenedMenuAndToggledVisibilityForCursor()) {
-      return;
-    }
-
     state = state.copyWith(
       menuOpen: !state.menuOpen,
     );
-  }
-
-  bool _hasOpenedMenuAndToggledVisibilityForCursor() {
-    if (!state.menuOpen && state.cursorStyle == CursorStyle.hidden) {
-      state = state.copyWith(
-        cursorStyle: CursorStyle.basic,
-        menuOpen: true,
-      );
-      return true;
-    }
-    return false;
   }
 }
 

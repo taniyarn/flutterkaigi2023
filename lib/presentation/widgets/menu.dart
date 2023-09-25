@@ -4,14 +4,10 @@ import 'package:fluttershow_base/components/widgets/spacing/margins.dart';
 import 'package:fluttershow_base/components/widgets/spacing/paddings.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../generated/l10n.dart';
 import '../../styles/fs_colors.dart';
 import '../../styles/fs_style_constants.dart';
 import '../../styles/fs_text_styles.dart';
-import '../config/cursor_style.dart';
 import '../provider/presentation_controller_provider.dart';
-import 'menu_multiselect.dart';
-import 'menu_option.dart';
 import 'slide_show.dart';
 
 class Menu extends HookConsumerWidget {
@@ -23,19 +19,7 @@ class Menu extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = S.of(context);
-    final presentation = ref.watch(presentationController);
     final size = MediaQuery.sizeOf(context);
-
-    void switchTheme({required bool value}) => ref
-        .watch(presentationController.notifier)
-        .setBrightness(value ? Brightness.dark : Brightness.light);
-
-    void switchLocale({required Locale value}) =>
-        ref.watch(presentationController.notifier).setLocale(value);
-
-    void switchMouseStyle({required CursorStyle value}) =>
-        ref.watch(presentationController.notifier).setCursorStyle(value);
 
     void toggleMenu() =>
         ref.watch(presentationController.notifier).toggleMenu();
@@ -66,50 +50,16 @@ class Menu extends HookConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            t.menu,
+                            'メニュー',
                             style: FSTextStyles.footerText(),
                           ),
-                          MenuOption(
-                            description: t.darkMode,
-                            value: presentation.brightness == Brightness.dark,
-                            callback: switchTheme,
-                          ),
                           verticalMargin8,
-                          MenuMultiSelect(
-                            optionName: t.language,
-                            value: presentation.locale.languageCode,
-                            options: S.delegate.supportedLocales
-                                .map((locale) => (locale.languageCode, locale))
-                                .toList(),
-                            callback: (value) =>
-                                switchLocale(value: value.$2 as Locale),
-                          ),
-                          verticalMargin16,
-                          MenuMultiSelect(
-                            optionName: t.mouse,
-                            value: presentation.cursorStyle,
-                            options: CursorStyle.values
-                                .map(
-                                  (mouseStyle) => (
-                                    mouseStyle.getLocalizedName(context),
-                                    mouseStyle,
-                                  ),
-                                )
-                                .toList(),
-                            callback: (value) => switchMouseStyle(
-                              value: value.$2 as CursorStyle,
-                            ),
-                          ),
-                          verticalMargin16,
                           CupertinoButton.filled(
                             onPressed: toggleMenu,
-                            child: Text(
-                              t.close,
+                            child: const Text(
+                              '閉じる',
                               style: TextStyle(
-                                color: FSColors.dynamicColor(
-                                  presentation.brightness,
-                                  darkColor: CupertinoColors.white,
-                                ),
+                                color: FSColors.regularTextColor,
                               ),
                             ),
                           ),
@@ -124,7 +74,7 @@ class Menu extends HookConsumerWidget {
                             Padding(
                               padding: horizontalPadding8,
                               child: Text(
-                                t.slides,
+                                'スライド',
                                 style: FSTextStyles.footerText(),
                               ),
                             ),

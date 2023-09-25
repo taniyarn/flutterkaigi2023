@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutterkaigi2023/presentation/config/presentation_slides.dart';
-import 'package:flutterkaigi2023/presentation/provider/presentation_controller_provider.dart';
 import 'package:fluttershow_base/components/widgets/spacing/paddings.dart';
 import 'package:fluttershow_base/fluttershow_base.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../config/presentation_slides.dart';
+import '../provider/presentation_controller_provider.dart';
 
 class SlideShow extends ConsumerWidget {
   const SlideShow({this.slides, super.key});

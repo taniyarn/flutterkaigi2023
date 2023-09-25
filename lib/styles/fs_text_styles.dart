@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutterkaigi2023/presentation/config/contants.dart';
+
+import '../presentation/config/contants.dart';
 
 class FSTextStyles {
   static TextStyle title({Color? color, double? fontSize}) => TextStyle(
