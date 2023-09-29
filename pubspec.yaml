@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.1
+  flutter_shaders: ^0.1.2
   fluttershow_base: ^1.1.1
   fluttershow_keynote: ^1.1.0
   hooks_riverpod: ^2.4.0
@@ -21,3 +22,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  shaders:
+    - assets/shaders/background.frag
